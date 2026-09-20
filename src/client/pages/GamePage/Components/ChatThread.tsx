@@ -4,7 +4,7 @@ import { Button, Stack, TextField } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import SendIcon from '@mui/icons-material/Send';
-import { Message } from './Message';
+import { Message } from './Message.js';
 
 const Main = styled.div`
   flex-grow: 1;

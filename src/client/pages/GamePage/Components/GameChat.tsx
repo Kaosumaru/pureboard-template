@@ -1,6 +1,6 @@
 import { useSendChatMessage, useChat } from 'pureboard/client';
 import { Message } from 'pureboard/shared';
-import { ChatThread, ChatThreadEntry } from './ChatThread';
+import { ChatThread, ChatThreadEntry } from './ChatThread.js';
 
 export interface GameChatProps {
   ownId: string;

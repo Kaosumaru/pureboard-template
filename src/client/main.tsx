@@ -5,10 +5,10 @@ import React from 'react';
 import { CookiesProvider } from 'react-cookie';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import LoginPage from './pages/LoginPage/LoginPage';
-import LogoutPage from './pages/LogoutPage/LogoutPage';
-import JoinGamePage from './pages/GamePage/JoinGamePage';
-import CreateGamePage from './pages/GamePage/CreateGamePage';
+import LoginPage from './pages/LoginPage/LoginPage.js';
+import LogoutPage from './pages/LogoutPage/LogoutPage.js';
+import JoinGamePage from './pages/GamePage/JoinGamePage.js';
+import CreateGamePage from './pages/GamePage/CreateGamePage.js';
 
 const darkTheme = createTheme({
   palette: {

@@ -4,8 +4,8 @@ import MessageIcon from '@mui/icons-material/Message';
 import CasinoIcon from '@mui/icons-material/Casino';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { JSX, useState } from 'react';
-import GameChat from './GameChat';
-import { SnackBar } from './SnackBar';
+import GameChat from './GameChat.js';
+import { SnackBar } from './SnackBar.js';
 
 export interface GameTabsProps {
   createComponent: (currentTab: ETabs) => JSX.Element;

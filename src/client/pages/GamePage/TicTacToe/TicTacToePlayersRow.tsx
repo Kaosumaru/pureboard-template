@@ -1,10 +1,10 @@
 import { Button } from '@mui/material';
 import { motion } from 'motion/react';
-import { createFieldToken } from './TicTacToeSquare';
-import { useTicTacToe } from './TicTacToeContext';
+import { createFieldToken } from './TicTacToeSquare.js';
+import { useTicTacToe } from './TicTacToeContext.js';
 import { SeatingInterface, useSeatingContext } from 'pureboard/client';
 import { UserInfo } from 'pureboard/shared';
-import { FieldType } from '@shared/stores/tictactoeStore';
+import { FieldType } from '@shared/stores/tictactoeStore.js';
 
 function createPlayer(seat: UserInfo | null, index: number, seats: SeatingInterface) {
   if (seat) return <h2 className="player-name">{seat.name}</h2>;

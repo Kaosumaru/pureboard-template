@@ -1,6 +1,6 @@
 import { Stack } from '@mui/material';
 import { useEffect } from 'react';
-import { useUserIdCookie } from '@client/api/auth';
+import { useUserIdCookie } from '@client/api/auth.js';
 
 function LogoutPage() {
   const [, , removeCookie] = useUserIdCookie();

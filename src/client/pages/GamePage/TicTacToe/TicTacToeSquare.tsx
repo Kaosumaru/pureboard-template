@@ -1,4 +1,4 @@
-import { FieldType } from '@shared/stores/tictactoeStore';
+import { FieldType } from '@shared/stores/tictactoeStore.js';
 import { ReactNode } from 'react';
 import { motion } from 'motion/react';
 

@@ -34,6 +34,7 @@ chrome-user-data
 /.worktrees
 .claude/*.local.*
 .claude/worktrees
+.vite.config.ts.*
 
 packages/react-devtools-core/dist
 packages/react-devtools-extensions/chrome/build

@@ -2,7 +2,7 @@ import express from 'express';
 import ViteExpress from 'vite-express';
 import { createServer, createChat, registerGame } from 'pureboard/server';
 import { UserInfo } from 'pureboard/shared';
-import { createGameStateStore } from '@shared/stores/tictactoeStore';
+import { createGameStateStore } from '@shared/stores/tictactoeStore.js';
 
 try {
   // create express server

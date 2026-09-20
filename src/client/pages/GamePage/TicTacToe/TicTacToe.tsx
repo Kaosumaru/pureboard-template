@@ -1,10 +1,10 @@
-import TicTacToeSquare, { createFieldToken } from './TicTacToeSquare';
+import TicTacToeSquare, { createFieldToken } from './TicTacToeSquare.js';
 import './styles.css';
 import { ChatProvider } from 'pureboard/client';
-import TicTacToeOptions from './TicTacToeOptions';
-import GameTabs, { ETabs } from '../Components/GameTabs';
-import { TicTacToeProvider, useTicTacToe } from './TicTacToeContext';
-import { PlayersRow } from './TicTacToePlayersRow';
+import TicTacToeOptions from './TicTacToeOptions.js';
+import GameTabs, { ETabs } from '../Components/GameTabs.js';
+import { TicTacToeProvider, useTicTacToe } from './TicTacToeContext.js';
+import { PlayersRow } from './TicTacToePlayersRow.js';
 
 function TicTacToeGame() {
   const { store, action } = useTicTacToe();

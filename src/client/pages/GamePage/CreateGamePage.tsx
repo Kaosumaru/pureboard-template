@@ -1,10 +1,10 @@
 import './GamePage.css';
 import { JSX } from 'react';
-import { ConnectionHelpers } from './ConnectionHelpers';
-import { useLoginContext } from '../LoginPage/LoginPage';
+import { ConnectionHelpers } from './ConnectionHelpers.js';
+import { useLoginContext } from '../LoginPage/LoginPage.js';
 import { CreateGameRoomClient, GameRoom } from 'pureboard/client';
-import { Main } from '@client/utils/Main';
-import TicTacToe from './TicTacToe/TicTacToe';
+import { Main } from '@client/utils/Main.js';
+import TicTacToe from './TicTacToe/TicTacToe.js';
 
 function CreateGamePage(): JSX.Element {
   const context = useLoginContext();

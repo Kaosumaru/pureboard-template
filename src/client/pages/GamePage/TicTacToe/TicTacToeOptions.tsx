@@ -1,6 +1,6 @@
 import { Button, Stack } from '@mui/material';
-import { useLoginContext } from '@client/pages/LoginPage/LoginPage';
-import { useTicTacToe } from './TicTacToeContext';
+import { useLoginContext } from '@client/pages/LoginPage/LoginPage.js';
+import { useTicTacToe } from './TicTacToeContext.js';
 import { useSeatingContext } from 'pureboard/client';
 
 export default function TicTacToeOptions() {

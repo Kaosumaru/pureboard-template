@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import { Main } from '@client/utils/Main';
+import { Main } from '@client/utils/Main.js';
 import { GameRoom, useConnectionContext } from 'pureboard/client';
 
 export function ConnectionHelpers() {
