@@ -30,7 +30,7 @@ function JoinGamePage(): JSX.Element {
         return Promise.resolve();
       }}
     >
-      <ConnectionHelpers />;
+      <ConnectionHelpers />
       <GameRoom.Connected>
         <TicTacToe />
       </GameRoom.Connected>

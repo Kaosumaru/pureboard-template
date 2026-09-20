@@ -10,11 +10,34 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 16px;
 }
 
 .current-player-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1rem;
+}
+
+.player-slot {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+}
+
+.player-slot-left {
+    justify-self: end;
+}
+
+.player-slot-right {
+    justify-self: start;
+}
+
+.player-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .tt-Container {

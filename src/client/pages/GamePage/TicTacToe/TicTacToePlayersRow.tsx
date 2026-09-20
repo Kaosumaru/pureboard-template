@@ -7,9 +7,9 @@ import { UserInfo } from 'pureboard/shared';
 import { FieldType } from '@shared/stores/tictactoeStore';
 
 function createPlayer(seat: UserInfo | null, index: number, seats: SeatingInterface) {
-  if (seat) return <h2>{seat.name}</h2>;
+  if (seat) return <h2 className="player-name">{seat.name}</h2>;
   return (
-    <h2>
+    <h2 className="player-name">
       {'<empty>'}
       <Button
         variant="outlined"
@@ -31,17 +31,23 @@ export function PlayersRow() {
 
   return (
     <div className="current-player-container">
-      <motion.span style={{ display: 'inline' }} initial={false} animate={{ opacity: currentPlayer == 0 ? 1 : 0.3 }}>
+      <motion.div
+        className="player-slot player-slot-left"
+        initial={false}
+        animate={{ opacity: currentPlayer == 0 ? 1 : 0.3 }}
+      >
         {createPlayer(seats[0], 0, seat)}
-        &nbsp;&nbsp;&nbsp;
         {createFieldToken(FieldType.X)}
-      </motion.span>
+      </motion.div>
       <h1>VS</h1>
-      <motion.span style={{ display: 'inline' }} initial={false} animate={{ opacity: currentPlayer == 1 ? 1 : 0.3 }}>
+      <motion.div
+        className="player-slot player-slot-right"
+        initial={false}
+        animate={{ opacity: currentPlayer == 1 ? 1 : 0.3 }}
+      >
         {createFieldToken(FieldType.O)}
-        &nbsp;&nbsp;&nbsp;
         {createPlayer(seats[1], 1, seat)}
-      </motion.span>
+      </motion.div>
     </div>
   );
 }
