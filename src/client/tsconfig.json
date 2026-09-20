@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+
+    "jsx": "react-jsx",
+    "module": "node16",
+    "moduleResolution": "node16"
+  },
+  "types": ["vite/client"],
+}
