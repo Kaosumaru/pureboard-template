@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import { motion } from 'motion/react';
-import { createFieldToken } from './TicTacToeSquare.js';
+import { createFieldToken } from './FieldToken.js';
 import { useTicTacToe } from './TicTacToeContext.js';
 import { SeatingInterface, useSeatingContext } from 'pureboard/client';
 import { UserInfo } from 'pureboard/shared';
@@ -36,7 +36,7 @@ export function PlayersRow() {
         initial={false}
         animate={{ opacity: currentPlayer == 0 ? 1 : 0.3 }}
       >
-        {createPlayer(seats[0], 0, seat)}
+        {createPlayer(seats[0] ?? null, 0, seat)}
         {createFieldToken(FieldType.X)}
       </motion.div>
       <h1>VS</h1>
@@ -46,7 +46,7 @@ export function PlayersRow() {
         animate={{ opacity: currentPlayer == 1 ? 1 : 0.3 }}
       >
         {createFieldToken(FieldType.O)}
-        {createPlayer(seats[1], 1, seat)}
+        {createPlayer(seats[1] ?? null, 1, seat)}
       </motion.div>
     </div>
   );

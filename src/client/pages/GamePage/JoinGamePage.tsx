@@ -3,7 +3,7 @@ import { JSX, useState } from 'react';
 import { GameRoom, JoinGameRoomClient } from 'pureboard/client';
 import { useParams } from 'react-router-dom';
 import { ConnectionHelpers } from './ConnectionHelpers.js';
-import { useLoginContext } from '../LoginPage/LoginPage.js';
+import { useLoginContext } from '../LoginPage/LoginContext.js';
 import TicTacToe from './TicTacToe/TicTacToe.js';
 
 function JoinGamePage(): JSX.Element {

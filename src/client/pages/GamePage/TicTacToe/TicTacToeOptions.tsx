@@ -1,5 +1,5 @@
 import { Button, Stack } from '@mui/material';
-import { useLoginContext } from '@client/pages/LoginPage/LoginPage.js';
+import { useLoginContext } from '@client/pages/LoginPage/LoginContext.js';
 import { useTicTacToe } from './TicTacToeContext.js';
 import { useSeatingContext } from 'pureboard/client';
 

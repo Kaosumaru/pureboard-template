@@ -44,7 +44,7 @@ function isGameOver(data: StoreData): boolean {
 }
 
 function isPositionInBounds(board: FieldType[][], row: number, column: number): boolean {
-  return row >= 0 && row < board.length && column >= 0 && column < board[0].length;
+  return row >= 0 && row < board.length && column >= 0 && column < board[0]!.length;
 }
 
 function otherPlayer(player: number): number {
@@ -53,9 +53,9 @@ function otherPlayer(player: number): number {
 
 function isMoveVictorious(board: FieldType[][], row: number, column: number): boolean {
   const size = board.length;
-  const currentField = board[row][column];
+  const currentField = board[row]![column]!;
 
-  const isRowComplete = board[row].every(field => field === currentField);
+  const isRowComplete = board[row]!.every(field => field === currentField);
   const isColumnComplete = board.every(rowFields => rowFields[column] === currentField);
   const isOnMainDiagonal = row === column;
   const isOnAntiDiagonal = row + column === size - 1;
@@ -74,11 +74,11 @@ function onMove(userPermissions: UserPermissions, data: StoreData, row: number, 
   const { board, currentPlayer, victoriousPlayer, isDraw } = data;
   if (isGameOver(data)) throw new Error('Game is already over');
   if (!isPositionInBounds(board, row, column)) throw new Error('Invalid position');
-  if (board[row][column] !== FieldType.Empty) throw new Error('Field is already taken');
+  if (board[row]![column] !== FieldType.Empty) throw new Error('Field is already taken');
   if (!userPermissions.canMoveAsPlayer(currentPlayer)) throw new Error('Not your turn');
 
   const tempBoard = board.map(rowFields => [...rowFields]);
-  tempBoard[row][column] = currentPlayer === 0 ? FieldType.X : FieldType.O;
+  tempBoard[row]![column] = currentPlayer === 0 ? FieldType.X : FieldType.O;
 
   const newData: StoreData = {
     board: tempBoard,

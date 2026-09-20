@@ -1,16 +1,14 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { useCallback } from 'react';
 import { useCookies } from 'react-cookie';
+import { CookieSetOptions } from 'universal-cookie';
 
-export function useUserIdCookie(): [string, (value: string, options?: any) => void, () => void] {
+export function useUserIdCookie(): [string, (value: string, options?: CookieSetOptions) => void, () => void] {
   const key = 'userId';
   const [cookie, setCookie, removeCookie] = useCookies([key]);
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   const userIdCookieValue = cookie[key] as string;
   const setUserIdCookie = useCallback(
-    (value: string, options?: any) => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    (value: string, options?: CookieSetOptions) => {
       setCookie(key, value, options);
     },
     [setCookie]

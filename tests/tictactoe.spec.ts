@@ -1,6 +1,6 @@
 import { Action, FieldType, StoreData, createGameStateStore } from '@shared/stores/tictactoeStore.js';
 import { UTHelper } from 'pureboard/shared';
-import { expect, test } from 'vitest'
+import { expect, test } from 'vitest';
 
 class TestHelper extends UTHelper<StoreData, Action> {
   constructor() {
@@ -41,7 +41,7 @@ test('should be able to make a move', () => {
 
   h.newGame();
   h.makeMove(0, 0);
-  expect(h.state().board[0][0]).toEqual(FieldType.X);
+  expect(h.state().board[0]?.[0]).toEqual(FieldType.X);
 });
 
 test('should switch players after a move', () => {

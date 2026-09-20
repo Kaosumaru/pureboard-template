@@ -1,8 +1,10 @@
-import TicTacToeSquare, { createFieldToken } from './TicTacToeSquare.js';
+import TicTacToeSquare from './TicTacToeSquare.js';
+import { createFieldToken } from './FieldToken.js';
 import './styles.css';
 import { ChatProvider } from 'pureboard/client';
 import TicTacToeOptions from './TicTacToeOptions.js';
-import GameTabs, { ETabs } from '../Components/GameTabs.js';
+import GameTabs from '../Components/GameTabs.js';
+import { ETabs } from '../Components/GameTabs.types.js';
 import { TicTacToeProvider, useTicTacToe } from './TicTacToeContext.js';
 import { PlayersRow } from './TicTacToePlayersRow.js';
 
@@ -22,7 +24,7 @@ function TicTacToeGame() {
           key={`${colIdx}_${rowIdx}`}
           colIdx={colIdx}
           rowIdx={rowIdx}
-          field={board[rowIdx][colIdx]}
+          field={board[rowIdx]![colIdx]!}
           isLastMove={isLastMove}
           onClick={(rowIdx, colIdx) => {
             void action({ type: 'move', row: rowIdx, column: colIdx });

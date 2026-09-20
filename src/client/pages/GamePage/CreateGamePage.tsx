@@ -1,7 +1,7 @@
 import './GamePage.css';
 import { JSX } from 'react';
 import { ConnectionHelpers } from './ConnectionHelpers.js';
-import { useLoginContext } from '../LoginPage/LoginPage.js';
+import { useLoginContext } from '../LoginPage/LoginContext.js';
 import { CreateGameRoomClient, GameRoom } from 'pureboard/client';
 import { Main } from '@client/utils/Main.js';
 import TicTacToe from './TicTacToe/TicTacToe.js';

@@ -6,6 +6,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { JSX, useState } from 'react';
 import GameChat from './GameChat.js';
 import { SnackBar } from './SnackBar.js';
+import { ETabs } from './GameTabs.types.js';
 
 export interface GameTabsProps {
   createComponent: (currentTab: ETabs) => JSX.Element;
@@ -47,14 +48,8 @@ interface TopBarProps {
   setTab: (tab: ETabs) => void;
 }
 
-export enum ETabs {
-  Game,
-  Chat,
-  Settings,
-}
-
 function TopBar(props: TopBarProps) {
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     props.setTab(newValue);
   };
 
