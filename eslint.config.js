@@ -48,6 +48,30 @@ export default tseslint.config(
     },
   },
   {
+    // shared code runs deterministically on both client and server, so time/randomness must be injected, not read directly
+    files: ['src/shared/**/*.{ts,tsx}'],
+    rules: {
+      'no-param-reassign': ['error', { props: true }],
+      'no-restricted-globals': [
+        'error',
+        {
+          name: 'Date',
+          message:
+            'Do not use Date in src/shared; it is non-deterministic across client/server. Pass timestamps in explicitly.',
+        },
+      ],
+      'no-restricted-properties': [
+        'error',
+        {
+          object: 'Math',
+          property: 'random',
+          message:
+            'Do not use Math.random in src/shared; it is non-deterministic across client/server. Use an injected RNG instead.',
+        },
+      ],
+    },
+  },
+  {
     // root-level config files aren't part of tsconfig.json, so they can't use type-aware rules
     files: ['*.config.{js,ts}'],
     extends: [tseslint.configs.disableTypeChecked],
