@@ -6,7 +6,7 @@
     "scripts": {
         "start": "NODE_ENV=production npx tsx src/server/index.ts",
         "build": "vite build",
-        "dev": "tsx watch  --exclude \"./vite.config.ts.*\" src/server/index.ts --host",
+        "dev": "tsx watch --exclude \"./vite.config.ts.*\" src/server/index.ts --host",
         "check-types": "tsc --noEmit"
     },
     "dependencies": {
