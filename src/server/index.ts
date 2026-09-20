@@ -2,7 +2,7 @@ import express from 'express';
 import ViteExpress from 'vite-express';
 import { createServer, createChat, registerGame } from 'pureboard/server';
 import { UserInfo } from 'pureboard/shared';
-import { createGameStateStore } from '@shared/stores/connectFourStore';
+import { createGameStateStore } from '@shared/stores/tictactoeStore';
 
 try {
   // create express server
@@ -19,7 +19,7 @@ try {
   const gameWebsocketServer = createServer();
 
   // register game type with chat component
-  registerGame(gameWebsocketServer, 'connect4', createGameStateStore, {
+  registerGame(gameWebsocketServer, 'tictactoe', createGameStateStore, {
     components: [createChat()],
     initialAction: () => ({ type: 'newGame' as const }),
   });

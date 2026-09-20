@@ -4,7 +4,7 @@ import { GameRoom, JoinGameRoomClient } from 'pureboard/client';
 import { useParams } from 'react-router-dom';
 import { ConnectionHelpers } from './ConnectionHelpers';
 import { useLoginContext } from '../LoginPage/LoginPage';
-import ConnectFour from './Connect4/ConnectFour';
+import TicTacToe from './TicTacToe/TicTacToe';
 
 function JoinGamePage(): JSX.Element {
   const context = useLoginContext();
@@ -32,7 +32,7 @@ function JoinGamePage(): JSX.Element {
     >
       <ConnectionHelpers />;
       <GameRoom.Connected>
-        <ConnectFour />
+        <TicTacToe />
       </GameRoom.Connected>
     </JoinGameRoomClient>
   );

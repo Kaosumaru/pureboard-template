@@ -1,15 +1,16 @@
-import ConnectFourSquare, { createFieldToken } from './ConnectFourSquare';
+import TicTacToeSquare, { createFieldToken } from './TicTacToeSquare';
 import './styles.css';
 import { ChatProvider } from 'pureboard/client';
-import ConnectFourOptions from './ConnectFourOptions';
+import TicTacToeOptions from './TicTacToeOptions';
 import GameTabs, { ETabs } from '../Components/GameTabs';
-import { ConnectFourProvider, useConnect4 } from './ConnectFourContext';
-import { PlayersRow } from './ConnectFourPlayersRow';
+import { TicTacToeProvider, useTicTacToe } from './TicTacToeContext';
+import { PlayersRow } from './TicTacToePlayersRow';
 
-function ConnectFourGame() {
-  const { store, action } = useConnect4();
+function TicTacToeGame() {
+  const { store, action } = useTicTacToe();
   const board = store(state => state.board);
   const winner = store(state => state.victoriousPlayer);
+  const isDraw = store(state => state.isDraw);
   const lastMoveColumn = store(state => state.lastMoveColumn);
   const lastMoveRow = store(state => state.lastMoveRow);
 
@@ -17,14 +18,14 @@ function ConnectFourGame() {
     return row.map((_, colIdx) => {
       const isLastMove = lastMoveColumn === colIdx && lastMoveRow === rowIdx;
       return (
-        <ConnectFourSquare
+        <TicTacToeSquare
           key={`${colIdx}_${rowIdx}`}
           colIdx={colIdx}
           rowIdx={rowIdx}
           field={board[rowIdx][colIdx]}
           isLastMove={isLastMove}
-          onClick={(_, colIdx) => {
-            void action({ type: 'move', column: colIdx });
+          onClick={(rowIdx, colIdx) => {
+            void action({ type: 'move', row: rowIdx, column: colIdx });
           }}
         />
       );
@@ -37,6 +38,10 @@ function ConnectFourGame() {
       <h1>Winner</h1>
       {createFieldToken(winner + 1)}
     </div>
+  ) : isDraw ? (
+    <div className="current-player-container">
+      <h1>Draw</h1>
+    </div>
   ) : (
     <PlayersRow />
   );
@@ -44,27 +49,27 @@ function ConnectFourGame() {
   return (
     <div className="main-Page-Container">
       {topRowComponent}
-      <div className={'cf-Container'}>{fullBoard}</div>
+      <div className={'tt-Container'}>{fullBoard}</div>
     </div>
   );
 }
 
-export default function ConnectFour() {
+export default function TicTacToe() {
   const createComponent = (tab: ETabs) => {
     switch (tab) {
       case ETabs.Game:
-        return <ConnectFourGame />;
+        return <TicTacToeGame />;
       case ETabs.Settings:
-        return <ConnectFourOptions />;
+        return <TicTacToeOptions />;
     }
     return <></>;
   };
 
   return (
-    <ConnectFourProvider>
+    <TicTacToeProvider>
       <ChatProvider>
         <GameTabs createComponent={createComponent} />
       </ChatProvider>
-    </ConnectFourProvider>
+    </TicTacToeProvider>
   );
 }

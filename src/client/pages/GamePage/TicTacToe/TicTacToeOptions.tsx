@@ -1,11 +1,11 @@
 import { Button, Stack } from '@mui/material';
 import { useLoginContext } from '@client/pages/LoginPage/LoginPage';
-import { useConnect4 } from './ConnectFourContext';
+import { useTicTacToe } from './TicTacToeContext';
 import { useSeatingContext } from 'pureboard/client';
 
-export default function ConnectFourOptions() {
+export default function TicTacToeOptions() {
   const seating = useSeatingContext();
-  const { store, action } = useConnect4();
+  const { store, action } = useTicTacToe();
 
   const winner = store(state => state.victoriousPlayer);
   const context = useLoginContext();

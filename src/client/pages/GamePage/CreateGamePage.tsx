@@ -4,7 +4,7 @@ import { ConnectionHelpers } from './ConnectionHelpers';
 import { useLoginContext } from '../LoginPage/LoginPage';
 import { CreateGameRoomClient, GameRoom } from 'pureboard/client';
 import { Main } from '@client/utils/Main';
-import ConnectFour from './Connect4/ConnectFour';
+import TicTacToe from './TicTacToe/TicTacToe';
 
 function CreateGamePage(): JSX.Element {
   const context = useLoginContext();
@@ -13,7 +13,7 @@ function CreateGamePage(): JSX.Element {
   return (
     <CreateGameRoomClient
       token={context.userId}
-      gameId="connect4"
+      gameId="tictactoe"
       options={{ players: 2 }}
       onCreated={(id, password) => {
         const url = password ? `/joinGame/${id}/${password}` : `/game/${id}`;
@@ -28,7 +28,7 @@ function CreateGamePage(): JSX.Element {
       <Main>
         <ConnectionHelpers />
         <GameRoom.Connected>
-          <ConnectFour />
+          <TicTacToe />
         </GameRoom.Connected>
       </Main>
     </CreateGameRoomClient>
