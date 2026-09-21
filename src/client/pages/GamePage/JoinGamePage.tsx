@@ -6,7 +6,7 @@ import { ConnectionHelpers } from './ConnectionHelpers.js';
 import { useLoginContext } from '../LoginPage/LoginContext.js';
 import TicTacToe from './TicTacToe/TicTacToe.js';
 
-function JoinGamePage(): JSX.Element {
+export function JoinGamePage(): JSX.Element {
   const context = useLoginContext();
   const [error, setError] = useState<string | undefined>(undefined);
   const params = useParams<{ id?: string; password?: string }>();
@@ -37,5 +37,3 @@ function JoinGamePage(): JSX.Element {
     </JoinGameRoomClient>
   );
 }
-
-export default JoinGamePage;

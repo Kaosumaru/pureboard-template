@@ -6,9 +6,8 @@ import { CreateGameRoomClient, GameRoom } from 'pureboard/client';
 import { Main } from '@client/utils/Main.js';
 import TicTacToe from './TicTacToe/TicTacToe.js';
 
-function CreateGamePage(): JSX.Element {
+export function CreateGamePage(): JSX.Element {
   const context = useLoginContext();
-  const loginContext = useLoginContext();
 
   return (
     <CreateGameRoomClient
@@ -21,7 +20,7 @@ function CreateGamePage(): JSX.Element {
         return Promise.resolve();
       }}
       onFailed={() => {
-        loginContext.logout();
+        context.logout();
         return Promise.resolve();
       }}
     >
@@ -34,5 +33,3 @@ function CreateGamePage(): JSX.Element {
     </CreateGameRoomClient>
   );
 }
-
-export default CreateGamePage;
